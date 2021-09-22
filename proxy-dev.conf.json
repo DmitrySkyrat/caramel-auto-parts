@@ -1,0 +1,7 @@
+{
+    "/": {
+      "target": "https://api.allegro.pl",
+      "secure": false
+    }
+  }
+  
