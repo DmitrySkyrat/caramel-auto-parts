@@ -15,20 +15,20 @@
         <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="/welcome">Welcome</a>
+              <a routerLink="/home">Home</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a>Monitor</a>
+              <a routerLink="/sun">Sun</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a>Workplace</a>
+              <a routerLink="/planets">Planets</a>
             </li>
           </ul>
         </li>
         <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a>Basic Form</a>
+              <a (click)="showModal()">Feedback Form</a>
             </li>
           </ul>
         </li>
@@ -53,3 +53,4 @@
     </nz-layout>
   </nz-layout>
   
+  <app-feedback></app-feedback>

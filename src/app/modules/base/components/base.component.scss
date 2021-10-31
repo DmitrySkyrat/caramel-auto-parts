@@ -6,7 +6,7 @@
   }
   
   .app-layout {
-    height: 100vh;
+    min-height: 100vh;
   }
   
   .menu-sidebar {
@@ -74,8 +74,10 @@
   }
   
   .inner-content {
-    padding: 24px;
     background: #fff;
     height: 100%;
+    background-image: url("/assets/images/solar-system.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   

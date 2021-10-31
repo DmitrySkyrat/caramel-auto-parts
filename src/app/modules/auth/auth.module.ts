@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { IconsProviderModule } from '../ng-zorro.module';
-import { BaseModule } from '../base/base.module';
+import { BaseModule } from '../core/core.module';
 import { AuthRoutingModule } from './auth-routing.module';
 
 

@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from './components/home/home.component';
 import { HomeRoutingModule } from './home-routing.module';
 
-import { HomeComponent } from './components/home.component';
-import { IconsProviderModule } from '../ng-zorro.module';
-
-
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [HomeRoutingModule, IconsProviderModule],
-  exports: [HomeComponent]
+  declarations: [
+    HomeComponent
+  ],
+  imports: [
+    CommonModule,
+    HomeRoutingModule
+  ]
 })
-export class HomeModule {}
+export class HomeModule { }
