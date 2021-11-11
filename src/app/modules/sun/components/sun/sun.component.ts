@@ -20,7 +20,7 @@ export class SunComponent implements OnInit {
     ).pipe(
       map(([items, page]) => {
         this.itemsAmount = items.length;
-        return [...items.slice((page - 1) * 10, (page - 1) * 10 + 10)]
+        return items.slice((page - 1) * 10, (page - 1) * 10 + 10);
       })
     )
   }
