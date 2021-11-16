@@ -3,9 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { ErrorComponent } from './modules/shared/components/error/error.component';
 
 const routes: Routes = [
-  { path: 'login', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)},
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: ErrorComponent, data: { title: 'error'}}
+  { path: 'login', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule), data: { breadcrumb: 'Login' }},
+  { path: '', loadChildren: () => import('./modules/base/base.module').then(m => m.BaseModule) },
+  { path: '**', component: ErrorComponent, data: { title: 'error', breadcrumb: 'Error' }}
 ];
 
 @NgModule({

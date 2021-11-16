@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div class="items">
+        <div class="item" *ngFor="let item of items$ | async">
+            <h4 class="item__title">{{item.data[0].title}}</h4>
+            <div class="item__view">
+                <img class="item__img" width="400" height="300" src="{{item.links[0].href}}">
+                <span class="item__desc">{{item.data[0].description}}</span>
+            </div>
+        </div>
+    </div>
+    <nz-pagination
+        [nzPageIndex]="5" 
+        [nzTotal]="itemsAmount" 
+        (nzPageIndexChange)="onPageIndexChange($event)"
+    >
+    </nz-pagination>
+</div>

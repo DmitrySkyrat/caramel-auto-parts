@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,8 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
-import { HomeModule } from './modules/home/home.module';
-import { AuthInterceptor } from './modules/base/intercetors/auth.interceptor';
+import { AuthInterceptor } from './modules/core/intercetors/auth.interceptor';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 registerLocaleData(en);
 registerLocaleData(ru);
@@ -28,7 +28,8 @@ registerLocaleData(ru);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    HomeModule,
+    NzBreadCrumbModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
   providers: [
@@ -52,7 +53,8 @@ registerLocaleData(ru);
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
   constructor(private router: Router) {
