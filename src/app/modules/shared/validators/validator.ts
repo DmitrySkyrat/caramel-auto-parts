@@ -1,4 +1,4 @@
-import { FormControl, ValidationErrors } from "@angular/forms";
+import { FormControl, FormGroup, ValidationErrors } from "@angular/forms";
 import { Observable, Observer } from "rxjs";
 
 export const userNameAsyncValidator = (control: FormControl) =>
@@ -14,3 +14,13 @@ export const userNameAsyncValidator = (control: FormControl) =>
         }, 1000);
     });
 
+export const confirmValidatorWrapper = function(validateForm: FormGroup) {
+    return function confirmValidator(control: FormControl): ValidationErrors {
+      if (!control.value) {
+        return { error: true, required: true };
+      } else if (control.value !== validateForm.controls.password.value) {
+        return { confirm: true, error: true };
+      }
+      return {};
+    };
+}

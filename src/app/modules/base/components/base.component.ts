@@ -9,12 +9,13 @@ import { FeedbackComponent } from '../../shared/components/feedback/feedback.com
 export class BaseComponent implements OnInit {
   @ViewChild(FeedbackComponent) feedback!: FeedbackComponent; 
   isCollapsed = false;
+  isVisible = false;
   constructor() {}
 
   ngOnInit() {
   }
 
   showModal() {
-    this.feedback.showModal();
+    this.isVisible = true;
   }
 }

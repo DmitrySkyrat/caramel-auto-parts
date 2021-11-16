@@ -5,7 +5,7 @@ import { IToken } from '../../auth/models/auth.model';
   providedIn: 'root'
 })
 export class LocalStorageService {
-  private _appToken!: IToken;
+  private _appToken: IToken = {token: ''};
 
   set appToken(token: IToken) {
     this._appToken = token;

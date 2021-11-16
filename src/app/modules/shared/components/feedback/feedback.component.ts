@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { userNameAsyncValidator } from "../../validators/validator";
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { userNameAsyncValidator, confirmValidatorWrapper } from "../../validators/validator";
 
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss']
 })
-export class FeedbackComponent {
+export class FeedbackComponent implements OnInit {
+  @Input() isVisible = false;
+  @Output() isVisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   validateForm!: FormGroup;
-  isVisible = false;
   isOkLoading = false;
 
   constructor(private fb: FormBuilder) {
@@ -17,25 +18,24 @@ export class FeedbackComponent {
       userName: ['', [Validators.required], [userNameAsyncValidator]],
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]],
-      confirm: ['', [this.confirmValidator]],
+      confirm: [''],
       comment: ['', [Validators.required]]
     });
   }
-
-  showModal(): void {
-    this.isVisible = true;
+  
+  ngOnInit() {
+    this.validateForm.get('confirm')?.setValidators([confirmValidatorWrapper(this.validateForm) as ValidatorFn]);
   }
-
   handleOk(): void {
     this.isOkLoading = true;
     setTimeout(() => {
-      this.isVisible = false;
+      this.isVisibleChange.emit(false);
       this.isOkLoading = false;
     }, 3000);
   }
 
   handleCancel(): void {
-    this.isVisible = false;
+    this.isVisibleChange.emit(false);
   }
 
   submitForm(value: { userName: string; email: string; password: string; confirm: string; comment: string }): void {
@@ -61,13 +61,4 @@ export class FeedbackComponent {
   validateConfirmPassword(): void {
     setTimeout(() => this.validateForm.controls.confirm.updateValueAndValidity());
   }
-
-  confirmValidator = (control: FormControl): { [s: string]: boolean } => {
-    if (!control.value) {
-      return { error: true, required: true };
-    } else if (control.value !== this.validateForm.controls.password.value) {
-      return { confirm: true, error: true };
-    }
-    return {};
-  };
 }
