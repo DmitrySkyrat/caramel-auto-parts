@@ -1,15 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MarsGalleryComponent } from './components/mars-gallery/mars-gallery.component';
+import { MarsGalleryComponent } from './components/mars-gallery.component';
+import { CoreModule } from '../core/core.module';
+import { MarsRoutingModule } from './mars-routing.module';
+import { IconsProviderModule } from '../ng-zorro.module';
+import { MarsPicturesComponent } from './components/mars-pictures/mars-pictures.component';
+import { MarsDefaultComponent } from './components/mars-default/mars-default.component';
+import { MarsVideosComponent } from './components/mars-videos/mars-videos.component';
 
 
 
 @NgModule({
   declarations: [
-    MarsGalleryComponent
+    MarsGalleryComponent,
+    MarsDefaultComponent,
+    MarsPicturesComponent,
+    MarsVideosComponent
   ],
   imports: [
-    CommonModule
+    CoreModule,
+    IconsProviderModule,
+    MarsRoutingModule
   ]
 })
 export class MarsModule { }

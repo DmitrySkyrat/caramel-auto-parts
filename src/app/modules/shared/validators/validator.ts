@@ -14,11 +14,11 @@ export const userNameAsyncValidator = (control: FormControl) =>
         }, 1000);
     });
 
-export const confirmValidatorWrapper = function(validateForm: FormGroup) {
+export const confirmValidatorWrapper = function(matchTo: string) {
     return function confirmValidator(control: FormControl): ValidationErrors {
       if (!control.value) {
         return { error: true, required: true };
-      } else if (control.value !== validateForm.controls.password.value) {
+      } else if (control.value !== (control.parent as FormGroup).controls[matchTo].value) {
         return { confirm: true, error: true };
       }
       return {};

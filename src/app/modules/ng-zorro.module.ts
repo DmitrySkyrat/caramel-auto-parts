@@ -12,6 +12,9 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
 import { NzResultModule } from 'ng-zorro-antd/result';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { NzImageModule } from 'ng-zorro-antd/image';
 
 const icons = [MenuFoldOutline, MenuUnfoldOutline, DashboardOutline, FormOutline];
 
@@ -28,7 +31,10 @@ const icons = [MenuFoldOutline, MenuUnfoldOutline, DashboardOutline, FormOutline
     NzModalModule,
     NzDatePickerModule,
     NzTimePickerModule,
-    NzResultModule
+    NzResultModule,
+    NzTabsModule,
+    NzCarouselModule,
+    NzImageModule
   ],
   providers: [
     { provide: NZ_ICONS, useValue: icons }

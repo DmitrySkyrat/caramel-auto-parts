@@ -9,7 +9,7 @@ const routes: Routes = [
       { path: 'home', loadChildren: () => import('../home/home.module').then(m => m.HomeModule), data: { breadcrumb: 'Home' } },
       { path: 'sun', canLoad: [AuthGuard], loadChildren: () => import('../sun/sun.module').then(m => m.SunModule), data: { breadcrumb: 'Sun' } },
       { path: 'planets', canLoad: [AuthGuard], loadChildren: () => import('../planets/planets.module').then(m => m.PlanetsModule), data: { breadcrumb: 'Planets' } },
-      { path: 'planets', canLoad: [AuthGuard], loadChildren: () => import('../planets/planets.module').then(m => m.PlanetsModule), data: { breadcrumb: 'Planets' } },
+      { path: 'mars', canLoad: [], loadChildren: () => import('../mars/mars.module').then(m => m.MarsModule), data: { breadcrumb: 'Mars' } },
     ],
   }
 ];

@@ -5,3 +5,7 @@ export interface ICollection {
     metadata: any;
     version: string;
 }
+
+export interface IMarsPicturesResponse {
+    photos: any;
+}

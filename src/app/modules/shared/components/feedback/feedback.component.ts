@@ -24,7 +24,7 @@ export class FeedbackComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.validateForm.get('confirm')?.setValidators([confirmValidatorWrapper(this.validateForm) as ValidatorFn]);
+    this.validateForm.get('confirm')?.setValidators([confirmValidatorWrapper('password') as ValidatorFn]);
   }
   handleOk(): void {
     this.isOkLoading = true;

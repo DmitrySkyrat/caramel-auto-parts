@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mars-gallery.component.scss']
 })
 export class MarsGalleryComponent implements OnInit {
-
+  tabs = [
+    {name: 'Default', route: 'default', id: 1},
+    {name: 'Pictures', route: 'pictures', id: 2},
+    {name: 'Videos', route: 'videos', id: 3},
+  ];
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

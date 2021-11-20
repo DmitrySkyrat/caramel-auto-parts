@@ -1,0 +1,8 @@
+<div class="wrapper">
+    <nz-carousel class="carousel" [nzEffect]="'fade'">
+        <div class="carousel__content" nz-carousel-content *ngFor="let photo of photos$ | async">
+            <h3 class="carousel__title">{{ photo.id}}</h3>
+            <img class="carousel__img" nz-image width="500px" height="500px" nzSrc="{{photo.img_src}}" alt="" />
+        </div>
+    </nz-carousel>
+</div>
