@@ -15,6 +15,11 @@ import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzImageModule } from 'ng-zorro-antd/image';
+import { NzListModule } from 'ng-zorro-antd/list';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 const icons = [MenuFoldOutline, MenuUnfoldOutline, DashboardOutline, FormOutline];
 
@@ -34,7 +39,12 @@ const icons = [MenuFoldOutline, MenuUnfoldOutline, DashboardOutline, FormOutline
     NzResultModule,
     NzTabsModule,
     NzCarouselModule,
-    NzImageModule
+    NzImageModule,
+    NzListModule,
+    NzDrawerModule,
+    NzDividerModule,
+    NzDescriptionsModule,
+    NzSelectModule
   ],
   providers: [
     { provide: NZ_ICONS, useValue: icons }

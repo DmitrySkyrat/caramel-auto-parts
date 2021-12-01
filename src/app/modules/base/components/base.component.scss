@@ -18,7 +18,7 @@
   
   .header-trigger {
     height: 64px;
-    padding: 20px 24px;
+    padding: 0px 24px;
     font-size: 20px;
     cursor: pointer;
     transition: all .3s,padding 0s;
@@ -62,7 +62,8 @@
   }
   
   .app-header {
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     height: 64px;
     padding: 0;
     background: #fff;

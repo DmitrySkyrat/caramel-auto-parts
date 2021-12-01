@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { AuthInterceptor } from './modules/core/intercetors/auth.interceptor';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { RootStoreModule } from './store/root-store.module';
 
 registerLocaleData(en);
 registerLocaleData(ru);
@@ -30,7 +31,8 @@ registerLocaleData(ru);
     BrowserAnimationsModule,
     NzBreadCrumbModule,
     HttpClientModule,
-    AppRoutingModule,
+    RootStoreModule,
+    AppRoutingModule
   ],
   providers: [
     {

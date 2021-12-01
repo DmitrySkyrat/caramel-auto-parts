@@ -20,6 +20,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     IconsProviderModule
   ],
-  exports: [FeedbackComponent]
+  exports: [
+    FeedbackComponent,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    IconsProviderModule
+  ]
 })
-export class SharedModule { }
+export class SharedModule {}
