@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
+import { ConfigStoreModule } from './config/config.store.module';
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,8 @@ import { StoreModule } from '@ngrx/store';
         strictActionWithinNgZone: true,
         strictActionTypeUniqueness: true
       }
-    })
+    }),
+    ConfigStoreModule
   ]
 })
 export class RootStoreModule {}

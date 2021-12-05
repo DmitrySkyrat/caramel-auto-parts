@@ -1,5 +1,8 @@
+import { ConfigState } from "./config/config.state";
+import { UsersState } from "./users/users.state";
+
 export interface AppState {
-    config: any;
-    users: any;
+    config: ConfigState;
+    users: UsersState;
     data: any;
 }
