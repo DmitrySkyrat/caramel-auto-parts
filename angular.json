@@ -37,9 +37,13 @@
             ],
             "styles": [
               "src/theme.less",
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.slim.min.js",
+              "./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,9 +10,12 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import ru from '@angular/common/locales/ru';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IconsProviderModule } from './modules/ng-zorro.module';
+import { Router } from '@angular/router';
+import { AuthInterceptor } from './modules/core/intercetors/auth.interceptor';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { RootStoreModule } from './store/root-store.module';
 
 registerLocaleData(en);
 registerLocaleData(ru);
@@ -23,26 +26,42 @@ registerLocaleData(ru);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    IconsProviderModule
+    NzBreadCrumbModule,
+    HttpClientModule,
+    RootStoreModule,
+    AppRoutingModule
   ],
-  providers: [{
-    provide: NZ_I18N,
-    useFactory: (localId: string) => {
-      switch (localId) {
-        case 'en':
-          return en_US;
-        case 'fr':
-          return ru_RU;
-        default:
-          return en_US;
-      }
+  providers: [
+    {
+      provide: NZ_I18N,
+      useFactory: (localId: string) => {
+        switch (localId) {
+          case 'en':
+            return en_US;
+          case 'fr':
+            return ru_RU;
+          default:
+            return en_US;
+        }
+      },
+      deps: [LOCALE_ID]
     },
-    deps: [LOCALE_ID]
-  }],
-  bootstrap: [AppComponent]
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private router: Router) {
+    const replacer = (key: string, value: any): string =>
+      typeof value === 'function' ? value.name : value;
+    console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+  }
+}

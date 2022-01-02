@@ -1,0 +1,8 @@
+<div class="wrapper">
+    <nz-tabset nzType="card" nzLinkRouter>
+        <nz-tab *ngFor="let tab of tabs">
+            <a *nzTabLink nz-tab-link [routerLink]="[tab.route]" [queryParams]="{ tab: tab.name }" queryParamsHandling="merge">{{ tab.name }}</a>
+        </nz-tab>
+    </nz-tabset>
+    <router-outlet></router-outlet>
+</div>
